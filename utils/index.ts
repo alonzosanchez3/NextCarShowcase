@@ -1,7 +1,9 @@
+import { CarProps } from "@/types"
 
 export const fetchCars = async() => {
+  console.log(process.env.CAR_NINJA_API, 'hey')
   const headers = {
-      'X-RapidAPI-Key': '6867a3433amsh5df2f7b263326b1p1965a6jsn13331656facd',
+      'X-RapidAPI-Key': process.env.CAR_NINJA_API!,
       'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
   }
 
@@ -24,4 +26,8 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
   const rentalRatePerDay = basePricePerDay + milateRate + ageRate;
 
   return rentalRatePerDay.toFixed(0)
+}
+
+export const generateCarImageUrl = (car: CarProps, angle?: string) => {
+
 }
